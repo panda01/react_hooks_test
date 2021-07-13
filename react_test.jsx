@@ -42,7 +42,7 @@ function clickIncrement(forHook) {
 	const selector = forHook ? "hook_increment" : "reg_increment";
 	const $incrementBtn = document.getElementById(selector);
 
-	const count = 10000;
+	const count = 100000;
 	const consoleTimeStr = "click increment " + count + " times for " + selector;
 	console.time(consoleTimeStr);
 
