@@ -1,7 +1,8 @@
 const puppeteer = require('puppeteer');
 
-const FOLDERS = ['hooks', 'traditional']
-const COMPONENTS = ['Use_Effect', 'Hello_World', 'Use_State']
+const FOLDERS = ['hooks', 'traditional'];
+const COMPONENTS = ['Use_Effect', 'Hello_World', 'Use_State'];
+const NUMBER_OF_TIMES_TO_CLICK_THE_BUTTON = 10;
 
 // spins up a page, if it has a button clicks it a bunch of times
 async function timePage(url, printPDF) {
@@ -11,11 +12,12 @@ async function timePage(url, printPDF) {
 	const pageMetrics = await page.metrics();
 	const hasButton = await page.$('button') !== null;
 	if(hasButton) {
-		for(let idx = 0; idx < 10; idx++) {
+		for(let idx = 0; idx < NUMBER_OF_TIMES_TO_CLICK_THE_BUTTON; idx++) {
 			await page.click('button');
 		}
 	}
 	console.log(url);
+	// https://github.com/puppeteer/puppeteer/blob/main/docs/api.md#pagemetrics
 	console.info(pageMetrics.ScriptDuration);
 	console.log('');
 
