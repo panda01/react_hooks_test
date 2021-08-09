@@ -6,17 +6,20 @@ class UseEffect extends React.Component {
 	}
 	constructor() {
 		super();
-		this.updateDocumentTitle = () => {
+		const updateDocumentTitle = () => {
 			document.title = `You clicked ${this.state.count} times`;
 		};
-		this.componentDidUpdate = this.updateDocumentTitle;
-		this.componentDidMount = this.updateDocumentTitle;
+		this.incrementCount = () => {
+			this.setState({count: this.state.count + 1});
+		};
+		this.componentDidUpdate = updateDocumentTitle;
+		this.componentDidMount = updateDocumentTitle;
 	}
 	render() {
 		return (
 			<div>
 				<p>You clicked {this.state.count} times</p>
-				<button onClick={() => {this.setState({count: this.state.count + 1});}}>
+				<button onClick={this.incrementCount}>
 					Click me
 				</button>
 			</div>
