@@ -2,8 +2,8 @@ const puppeteer = require('puppeteer');
 
 const FOLDERS = ['hooks', 'traditional'];
 const COMPONENTS = ['Use_Effect', 'Hello_World', 'Use_State'];
-const NUMBER_OF_TIMES_TO_CLICK_THE_BUTTON = 50;
-const NUMBER_OF_TESTS_TO_RUN_PER_EL = 20;
+const NUMBER_OF_TIMES_TO_CLICK_THE_BUTTON = 10;
+const NUMBER_OF_TESTS_TO_RUN_PER_EL = 100;
 
 const timesObject = {};
 
@@ -44,7 +44,7 @@ async function timePage(url, printPDF) {
 				return sumSoFar + curr.ScriptDuration;
 			}, 0);
 			const avg = sumTotal / timesObject[path].length;
-			console.log('Average ', path, ' Script Duration: ', avg);
+			console.log('Average ', path, ' Script Duration after ', NUMBER_OF_TESTS_TO_RUN_PER_EL, ' runs: ', avg);
 
 		}
 	}
